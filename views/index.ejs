@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat spot</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <h1>All Chats!</h1>
+    <form method="get" action="http://localhost:8080/chats/new">
+        <button>New Chat</button>
+    </form>
+    <% for(chat of chats){ %>
+        <div class="box">
+            <p>from: <i><%=chat.from%></i></p>
+            <p>Recived by: <i><%=chat.to%></i></p>
+            <div class="msg">
+                <p>message: <%=chat.msg%></p>
+                <div id="operations">
+                    <form method="get" action="http://localhost:8080/chats/<%=chat._id%>/edit">
+                        <button class="btnOp">Edit message</button>
+                    </form>
+                    <form method="post" action="http://localhost:8080/chats/<%=chat._id%>?_method=delete">
+                        <button class="btnOp btn">Delete chat</button>
+                    </form>
+                </div>
+            </div>
+            <p><%=chat.created_at.toString().split(" ")[4]%></p>
+            <p><%=chat.created_at.toString().split(" ").splice(0,4).join(" ")%></p>
+            <hr>
+        </div>
+    <% } %>    
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function(){
+        let btnDelete = document.querySelector(".btn");
+        btnDelete.addEventListener("click", ()=>{
+        alert("This chat will be deleted perminatly");
+    });
+    });  
+</script>
+
+</html>

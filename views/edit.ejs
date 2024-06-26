@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit message</title>
+</head>
+<body>
+    <h1>Edit message</h1>
+    <p name="id">Your id: <%=data._id%></p>
+    <p>From: <%=data.from%></p>
+    <p>Delivered to: <%=data.to%></p>
+    <form method="post" action="/chats/<%=data._id%>/edit?_method=put">
+        <textarea type="text" name="msg" rows="10" cols="30"><%=data.msg%></textarea><br><br>
+        <button id="btn">Add message</button>
+    </form>
+</body>
+<script src="/ping.js"></script>
+</html>

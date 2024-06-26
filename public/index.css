@@ -1,0 +1,30 @@
+html {
+    scroll-behavior: smooth;
+}
+body{
+    background-color: aliceblue;
+}
+.box{
+    margin-left: 25vw;
+}
+.msg{
+    background-color: rgb(0, 89, 255);
+    color: white;
+}
+div{
+    border-radius: 10px;
+    width: 30vw;
+}
+.msg{
+    padding: 10px;
+}
+#operations{
+    display: flex;
+    gap: 5px;
+}
+.btnOp{
+    border-radius: 10px;
+    padding: 3px;
+    background-color: aliceblue;
+    border: 0.25px solid silver;
+}
